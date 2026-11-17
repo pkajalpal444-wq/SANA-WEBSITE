@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Daraksha - My New Website</title>
+<style>
+  *{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',sans-serif}
+  body{background:#0f0c29;background:linear-gradient(to right,#24243e,#302b63,#0f0c29);color:white;transition:0.4s}
+  body.light{background:#f2f2f2;color:#222}
+  header{text-align:center;padding:40px 20px}
+  header h1{font-size:42px;background:linear-gradient(90deg,#ff6a00,#ee0979);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+  header p{margin-top:10px;opacity:0.8}
+  .btn{padding:12px 22px;border:none;border-radius:30px;cursor:pointer;font-weight:bold;margin:8px}
+  .btn1{background:#ff6a00;color:white}
+  .btn2{background:white;color:#302b63}
+  .container{max-width:800px;margin:auto;padding:20px}
+  .card{background:rgba(255,255,255,0.12);backdrop-filter:blur(10px);padding:22px;border-radius:20px;margin:15px 0;box-shadow:0 10px 30px rgba(0,0,0,0.3)}
+  body.light .card{background:white;box-shadow:0 10px 20px rgba(0,0,0,0.1)}
+  .skills{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}
+  .skill{background:#ff6a00;padding:8px 16px;border-radius:20px;cursor:pointer;transition:0.3s}
+  .skill:hover{transform:scale(1.1);background:#ee0979}
+  input{width:100%;padding:12px;border-radius:10px;border:none;margin-top:10px;outline:none}
+  #output{margin-top:12px;font-weight:bold;color:#ffe259}
+  body.light #output{color:#d63384}
+  footer{text-align:center;padding:20px;opacity:0.7}
+</style>
+</head>
+<body>
+
+<header>
+  <h1 id="title">Hello, Main Daraksha Hu 👋</h1>
+  <p>ITI COPA Student | Web Developer in Making</p>
+  <button class="btn btn1" onclick="changeName()">Naam Badlo ✨</button>
+  <button class="btn btn2" onclick="toggleMode()">Dark / Light Mode 🌙</button>
+</header>
+
+<div class="container">
+  <div class="card">
+    <h2>💻 Meri Skills - Click Karo</h2>
+    <p>Kisi bhi skill pe click karo, neeche uska level dikhega.</p>
+    <div class="skills">
+      <div class="skill" onclick="showSkill('HTML - 90% seekh liya hai!')">HTML</div>
+      <div class="skill" onclick="showSkill('CSS - Design banana aa gaya hai!')">CSS</div>
+      <div class="skill" onclick="showSkill('JavaScript - Website ko chalana aa gaya hai!')">JavaScript</div>
+      <div class="skill" onclick="showSkill('Computer - MS Word, Excel sab aata hai!')">Computer</div>
+    </div>
+    <p id="skillText" style="margin-top:15px;"></p>
+  </div>
+
+  <div class="card">
+    <h2>🧮 Mini Calculator</h2>
+    <p>Do number likho, JavaScript jod dega:</p>
+    <input type="number" id="n1" placeholder="Pehla number">
+    <input type="number" id="n2" placeholder="Dusra number">
+    <button class="btn btn1" onclick="addNumbers()">Jodo ➕</button>
+    <p id="output"></p>
+  </div>
+
+  <div class="card">
+    <h2>📚 Mera Goal</h2>
+    <p id="goal">Mujhe ek acchi job karni hai aur apni khud ki website company kholni hai.</p>
+    <button class="btn btn2" onclick="changeGoal()">Goal Badlo</button>
+  </div>
+</div>
+
+<footer>Made with ❤️ by Daraksha</footer>
+
+<script>
+  function changeName(){
+    let name = prompt("Apna naam likho:");
+    if(name){
+      document.getElementById("title").innerHTML = "Hello, Main " + name + " Hu 👋";
+    }
+  }
+  function toggleMode(){
+    document.body.classList.toggle("light");
+  }
+  function showSkill(text){
+    document.getElementById("skillText").innerHTML = "👉 " + text;
+  }
+  function addNumbers(){
+    let a = Number(document.getElementById("n1").value);
+    let b = Number(document.getElementById("n2").value);
+    document.getElementById("output").innerHTML = "Jawab hai: " + (a + b);
+  }
+  function changeGoal(){
+    document.getElementById("goal").innerHTML = "Mujhe Web Developer banna hai aur sabko sikhana hai ki ladkiyaan bhi coding kar sakti hain! 💪";
+  }
+</script>
+
+</body>
+</html>
